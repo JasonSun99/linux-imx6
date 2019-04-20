@@ -1,0 +1,1 @@
+cmd_sound/usb/built-in.o :=  /home/study/jaguar/SwapCode/release_jaguar_v1.1_2017-07-20_00/toolchains/gcc-linaro-arm-linux-gnueabihf-4.7-64bit/bin/arm-linux-gnueabihf-ld -EL    -r -o sound/usb/built-in.o sound/usb/snd-usb-audio.o sound/usb/snd-usbmidi-lib.o sound/usb/misc/built-in.o sound/usb/usx2y/built-in.o sound/usb/caiaq/built-in.o sound/usb/6fire/built-in.o 

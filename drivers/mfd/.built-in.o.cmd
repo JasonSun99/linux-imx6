@@ -1,0 +1,1 @@
+cmd_drivers/mfd/built-in.o :=  /home/study/jaguar/SwapCode/release_jaguar_v1.1_2017-07-20_00/toolchains/gcc-linaro-arm-linux-gnueabihf-4.7-64bit/bin/arm-linux-gnueabihf-ld -EL    -r -o drivers/mfd/built-in.o drivers/mfd/wm8994-core.o drivers/mfd/wm8994-irq.o drivers/mfd/pfuze-core.o drivers/mfd/mfd-core.o drivers/mfd/mxc-hdmi-core.o drivers/mfd/max17135-core.o 

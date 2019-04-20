@@ -1,0 +1,1 @@
+cmd_drivers/mxc/thermal/built-in.o :=  /home/study/jaguar/SwapCode/release_jaguar_v1.1_2017-07-20_00/toolchains/gcc-linaro-arm-linux-gnueabihf-4.7-64bit/bin/arm-linux-gnueabihf-ld -EL    -r -o drivers/mxc/thermal/built-in.o drivers/mxc/thermal/thermal.o drivers/mxc/thermal/cooling.o 

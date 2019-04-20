@@ -1,0 +1,1 @@
+cmd_sound/core/snd.o := /home/study/jaguar/SwapCode/release_jaguar_v1.1_2017-07-20_00/toolchains/gcc-linaro-arm-linux-gnueabihf-4.7-64bit/bin/arm-linux-gnueabihf-ld -EL    -r -o sound/core/snd.o sound/core/sound.o sound/core/init.o sound/core/memory.o sound/core/info.o sound/core/control.o sound/core/misc.o sound/core/device.o sound/core/jack.o 

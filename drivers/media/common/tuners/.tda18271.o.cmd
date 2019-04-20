@@ -1,0 +1,1 @@
+cmd_drivers/media/common/tuners/tda18271.o := /home/study/jaguar/SwapCode/release_jaguar_v1.1_2017-07-20_00/toolchains/gcc-linaro-arm-linux-gnueabihf-4.7-64bit/bin/arm-linux-gnueabihf-ld -EL    -r -o drivers/media/common/tuners/tda18271.o drivers/media/common/tuners/tda18271-maps.o drivers/media/common/tuners/tda18271-common.o drivers/media/common/tuners/tda18271-fe.o 

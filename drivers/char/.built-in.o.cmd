@@ -1,0 +1,1 @@
+cmd_drivers/char/built-in.o :=  /home/study/jaguar/SwapCode/release_jaguar_v1.1_2017-07-20_00/toolchains/gcc-linaro-arm-linux-gnueabihf-4.7-64bit/bin/arm-linux-gnueabihf-ld -EL    -r -o drivers/char/built-in.o drivers/char/mem.o drivers/char/random.o drivers/char/misc.o drivers/char/fsl_otp.o drivers/char/apm-emulation.o drivers/char/hw_random/built-in.o drivers/char/mxs_viim.o 

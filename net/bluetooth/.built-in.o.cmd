@@ -1,0 +1,1 @@
+cmd_net/bluetooth/built-in.o :=  /home/study/jaguar/SwapCode/release_jaguar_v1.1_2017-07-20_00/toolchains/gcc-linaro-arm-linux-gnueabihf-4.7-64bit/bin/arm-linux-gnueabihf-ld -EL    -r -o net/bluetooth/built-in.o net/bluetooth/bluetooth.o net/bluetooth/rfcomm/built-in.o net/bluetooth/bnep/built-in.o net/bluetooth/hidp/built-in.o 

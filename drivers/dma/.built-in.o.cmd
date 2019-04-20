@@ -1,0 +1,1 @@
+cmd_drivers/dma/built-in.o :=  /home/study/jaguar/SwapCode/release_jaguar_v1.1_2017-07-20_00/toolchains/gcc-linaro-arm-linux-gnueabihf-4.7-64bit/bin/arm-linux-gnueabihf-ld -EL    -r -o drivers/dma/built-in.o drivers/dma/dmaengine.o drivers/dma/pxp/built-in.o drivers/dma/imx-sdma.o drivers/dma/mxs-dma.o 

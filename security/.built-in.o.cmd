@@ -1,0 +1,1 @@
+cmd_security/built-in.o :=  /home/study/jaguar/SwapCode/release_jaguar_v1.1_2017-07-20_00/toolchains/gcc-linaro-arm-linux-gnueabihf-4.7-64bit/bin/arm-linux-gnueabihf-ld -EL    -r -o security/built-in.o security/commoncap.o security/min_addr.o security/device_cgroup.o 

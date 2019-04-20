@@ -1,0 +1,1 @@
+cmd_sound/core/snd-pcm.o := /home/study/jaguar/SwapCode/release_jaguar_v1.1_2017-07-20_00/toolchains/gcc-linaro-arm-linux-gnueabihf-4.7-64bit/bin/arm-linux-gnueabihf-ld -EL    -r -o sound/core/snd-pcm.o sound/core/pcm.o sound/core/pcm_native.o sound/core/pcm_lib.o sound/core/pcm_timer.o sound/core/pcm_misc.o sound/core/pcm_memory.o 
