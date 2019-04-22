@@ -423,6 +423,12 @@ deps_drivers/usb/host/ehci-hcd.o := \
     $(wildcard include/config/soc/imx35.h) \
   include/linux/irqreturn.h \
   include/linux/pci_ids.h \
+  include/linux/pci-dma.h \
+  include/linux/dmapool.h \
+  /home/study/imx_linux/SolidRun/pcie_ep_side/linux-imx6_3_0_35/arch/arm/include/asm/scatterlist.h \
+  include/asm-generic/scatterlist.h \
+    $(wildcard include/config/debug/sg.h) \
+    $(wildcard include/config/need/sg/dma/length.h) \
   /home/study/imx_linux/SolidRun/pcie_ep_side/linux-imx6_3_0_35/arch/arm/include/asm/pci.h \
     $(wildcard include/config/pci/host/ite8152.h) \
   include/asm-generic/pci-dma-compat.h \
@@ -435,10 +441,6 @@ deps_drivers/usb/host/ehci-hcd.o := \
   include/linux/bug.h \
   include/linux/dma-direction.h \
   include/linux/scatterlist.h \
-    $(wildcard include/config/debug/sg.h) \
-  /home/study/imx_linux/SolidRun/pcie_ep_side/linux-imx6_3_0_35/arch/arm/include/asm/scatterlist.h \
-  include/asm-generic/scatterlist.h \
-    $(wildcard include/config/need/sg/dma/length.h) \
   include/linux/mm.h \
     $(wildcard include/config/sysctl.h) \
     $(wildcard include/config/stack/growsup.h) \
@@ -519,7 +521,6 @@ deps_drivers/usb/host/ehci-hcd.o := \
     $(wildcard include/config/soc/imx51.h) \
     $(wildcard include/config/soc/imx53.h) \
   arch/arm/plat-mxc/include/mach/mx6.h \
-  include/linux/dmapool.h \
   include/linux/delay.h \
   /home/study/imx_linux/SolidRun/pcie_ep_side/linux-imx6_3_0_35/arch/arm/include/asm/delay.h \
   include/linux/sched.h \
@@ -721,6 +722,7 @@ deps_drivers/usb/host/ehci-hcd.o := \
   drivers/usb/host/ehci-q.c \
   drivers/usb/host/ehci-sched.c \
     $(wildcard include/config/usb/ehci/tt/newsched.h) \
+  drivers/usb/host/ehci-pci.c \
   drivers/usb/host/ehci-arc.c \
   include/linux/platform_device.h \
     $(wildcard include/config/hibernate/callbacks.h) \

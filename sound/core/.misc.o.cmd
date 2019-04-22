@@ -499,6 +499,107 @@ deps_sound/core/misc.o := \
   /home/study/imx_linux/SolidRun/pcie_ep_side/linux-imx6_3_0_35/arch/arm/include/asm/device.h \
     $(wildcard include/config/dmabounce.h) \
   include/linux/pm_wakeup.h \
+  include/linux/pci.h \
+    $(wildcard include/config/pci/iov.h) \
+    $(wildcard include/config/pcieaspm.h) \
+    $(wildcard include/config/pci/msi.h) \
+    $(wildcard include/config/pcieportbus.h) \
+    $(wildcard include/config/pcieaer.h) \
+    $(wildcard include/config/pcie/ecrc.h) \
+    $(wildcard include/config/ht/irq.h) \
+    $(wildcard include/config/pci/domains.h) \
+    $(wildcard include/config/pci/quirks.h) \
+    $(wildcard include/config/pci/mmconfig.h) \
+    $(wildcard include/config/hotplug/pci.h) \
+  include/linux/pci_regs.h \
+  include/linux/mod_devicetable.h \
+  include/linux/io.h \
+    $(wildcard include/config/has/ioport.h) \
+  /home/study/imx_linux/SolidRun/pcie_ep_side/linux-imx6_3_0_35/arch/arm/include/asm/io.h \
+  arch/arm/plat-mxc/include/mach/io.h \
+    $(wildcard include/config/soc/imx31.h) \
+    $(wildcard include/config/soc/imx35.h) \
+  include/linux/irqreturn.h \
+  include/linux/pci_ids.h \
+  include/linux/pci-dma.h \
+  include/linux/dmapool.h \
+  /home/study/imx_linux/SolidRun/pcie_ep_side/linux-imx6_3_0_35/arch/arm/include/asm/scatterlist.h \
+  include/asm-generic/scatterlist.h \
+    $(wildcard include/config/debug/sg.h) \
+    $(wildcard include/config/need/sg/dma/length.h) \
+  /home/study/imx_linux/SolidRun/pcie_ep_side/linux-imx6_3_0_35/arch/arm/include/asm/pci.h \
+    $(wildcard include/config/pci/host/ite8152.h) \
+  include/asm-generic/pci-dma-compat.h \
+  include/linux/dma-mapping.h \
+    $(wildcard include/config/has/dma.h) \
+    $(wildcard include/config/have/dma/attrs.h) \
+    $(wildcard include/config/need/dma/map/state.h) \
+  include/linux/err.h \
+  include/linux/dma-attrs.h \
+  include/linux/bug.h \
+  include/linux/dma-direction.h \
+  include/linux/scatterlist.h \
+  include/linux/mm.h \
+    $(wildcard include/config/ksm.h) \
+    $(wildcard include/config/debug/pagealloc.h) \
+    $(wildcard include/config/hibernation.h) \
+    $(wildcard include/config/hugetlbfs.h) \
+  include/linux/debug_locks.h \
+    $(wildcard include/config/debug/locking/api/selftests.h) \
+  include/linux/range.h \
+  include/linux/bit_spinlock.h \
+  /home/study/imx_linux/SolidRun/pcie_ep_side/linux-imx6_3_0_35/arch/arm/include/asm/pgtable.h \
+    $(wildcard include/config/highpte.h) \
+  include/asm-generic/4level-fixup.h \
+  /home/study/imx_linux/SolidRun/pcie_ep_side/linux-imx6_3_0_35/arch/arm/include/asm/proc-fns.h \
+  /home/study/imx_linux/SolidRun/pcie_ep_side/linux-imx6_3_0_35/arch/arm/include/asm/glue-proc.h \
+    $(wildcard include/config/cpu/arm610.h) \
+    $(wildcard include/config/cpu/arm7tdmi.h) \
+    $(wildcard include/config/cpu/arm710.h) \
+    $(wildcard include/config/cpu/arm720t.h) \
+    $(wildcard include/config/cpu/arm740t.h) \
+    $(wildcard include/config/cpu/arm9tdmi.h) \
+    $(wildcard include/config/cpu/arm920t.h) \
+    $(wildcard include/config/cpu/arm922t.h) \
+    $(wildcard include/config/cpu/arm925t.h) \
+    $(wildcard include/config/cpu/arm926t.h) \
+    $(wildcard include/config/cpu/arm940t.h) \
+    $(wildcard include/config/cpu/arm946e.h) \
+    $(wildcard include/config/cpu/arm1020.h) \
+    $(wildcard include/config/cpu/arm1020e.h) \
+    $(wildcard include/config/cpu/arm1022.h) \
+    $(wildcard include/config/cpu/arm1026.h) \
+    $(wildcard include/config/cpu/mohawk.h) \
+    $(wildcard include/config/cpu/feroceon.h) \
+    $(wildcard include/config/cpu/v6k.h) \
+    $(wildcard include/config/cpu/v7.h) \
+  arch/arm/plat-mxc/include/mach/vmalloc.h \
+  /home/study/imx_linux/SolidRun/pcie_ep_side/linux-imx6_3_0_35/arch/arm/include/asm/pgtable-hwdef.h \
+  include/asm-generic/pgtable.h \
+  include/linux/page-flags.h \
+    $(wildcard include/config/pageflags/extended.h) \
+    $(wildcard include/config/arch/uses/pg/uncached.h) \
+    $(wildcard include/config/memory/failure.h) \
+    $(wildcard include/config/swap.h) \
+    $(wildcard include/config/s390.h) \
+  include/linux/huge_mm.h \
+  include/linux/vmstat.h \
+    $(wildcard include/config/vm/event/counters.h) \
+  include/linux/vm_event_item.h \
+  /home/study/imx_linux/SolidRun/pcie_ep_side/linux-imx6_3_0_35/arch/arm/include/asm/dma-mapping.h \
+  include/linux/dma-debug.h \
+    $(wildcard include/config/dma/api/debug.h) \
+  include/asm-generic/dma-coherent.h \
+    $(wildcard include/config/have/generic/dma/coherent.h) \
+  /home/study/imx_linux/SolidRun/pcie_ep_side/linux-imx6_3_0_35/arch/arm/include/asm/mach/pci.h \
+  arch/arm/plat-mxc/include/mach/hardware.h \
+  arch/arm/plat-mxc/include/mach/mxc.h \
+    $(wildcard include/config/soc/imx6q.h) \
+    $(wildcard include/config/soc/imx37.h) \
+    $(wildcard include/config/soc/imx50.h) \
+    $(wildcard include/config/soc/imx51.h) \
+    $(wildcard include/config/soc/imx53.h) \
+  arch/arm/plat-mxc/include/mach/mx6.h \
 
 sound/core/misc.o: $(deps_sound/core/misc.o)
 

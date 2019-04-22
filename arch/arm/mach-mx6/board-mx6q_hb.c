@@ -183,6 +183,7 @@ static const struct imx_pcie_platform_data mx6_hb_pcie_data __initconst = {
 	.pcie_rst	= HB_PCIE_RST,
 	.pcie_wake_up	= -EINVAL,
 	.pcie_dis	= HB_PCIE_DIS,
+	.type_ep	= 1,/*jason-pci*/
 };
 #endif
 

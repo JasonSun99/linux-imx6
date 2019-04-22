@@ -211,13 +211,14 @@ static void change_field(int *in, int start, int end, int val);
 /* IMX PCIE GPR configure routines */
 static inline void imx_pcie_clrset(u32 mask, u32 val, void __iomem *addr)
 {
+	pr_info("jason-pci:%s is here",__FUNCTION__);
 	writel(((readl(addr) & ~mask) | (val & mask)), addr);
 }
 
 static struct imx_pcie_port *bus_to_port(int bus)
 {
 	int i;
-
+    pr_info("jason-pci:%s is here",__FUNCTION__);
 	for (i = num_pcie_ports - 1; i >= 0; i--) {
 		int rbus = imx_pcie_port[i].root_bus_nr;
 		if (rbus != -1 && rbus == bus)
@@ -230,7 +231,7 @@ static struct imx_pcie_port *bus_to_port(int bus)
 static int __init imx_pcie_setup(int nr, struct pci_sys_data *sys)
 {
 	struct imx_pcie_port *pp;
-
+    pr_info("jason-pci:%s is here",__FUNCTION__);
 	if (nr >= num_pcie_ports)
 		return 0;
 
@@ -279,7 +280,7 @@ static int imx_pcie_link_up(void __iomem *dbi_base)
 	/* Check the pcie link up or link down */
 	int iterations = 200;
 	u32 rc, ltssm, rx_valid, temp;
-
+   pr_info("jason-pci:%s is here",__FUNCTION__);
 	do {
 		/* link is debug bit 36 debug 1 start in bit 32 */
 		rc = readl(dbi_base + DB_R1) & (0x1 << (36 - 32)) ;
@@ -327,7 +328,7 @@ static void imx_pcie_regions_setup(struct device *dev, void __iomem *dbi_base)
 	unsigned int i;
 	void __iomem *p = dbi_base + PCIE_PL_MSIC_INT;
 #endif
-
+ pr_info("jason-pci:%s is here",__FUNCTION__);
 	/*
 	 * i.MX6 defines 16MB in the AXI address map for PCIe.
 	 *
@@ -364,7 +365,7 @@ static void imx_pcie_regions_setup(struct device *dev, void __iomem *dbi_base)
 
 		/* 32bit none-prefetchable 8M bytes memory on bar0 */
 		writel(0x0, dbi_base + PCI_BASE_ADDRESS_0);
-		writel(SZ_8M - 1, dbi_base + (1 << 12) + PCI_BASE_ADDRESS_0);
+		writel(SZ_8M - 1, dbi_base + (1 << 12) + PCI_BASE_ADDRESS_0);//jason
 
 		/* None used bar1 */
 		writel(0x0, dbi_base + PCI_BASE_ADDRESS_1);
@@ -444,6 +445,7 @@ void imx_pcie_mask_irq(unsigned int pos, int set)
 	unsigned int mask = 1 << (pos & 0x1F);
 	unsigned int val, newval;
 	void __iomem *p;
+	pr_info("jason-pci:%s is here",__FUNCTION__);
 
 	p = dbi_base + PCIE_PL_MSIC_INT + MSIC_INT_MASK + ((pos >> 5) * 12);
 
@@ -463,6 +465,7 @@ void imx_pcie_enable_irq(unsigned int pos, int set)
 	unsigned int mask = 1 << (pos & 0x1F);
 	unsigned int val, newval;
 	void __iomem *p;
+	pr_info("jason-pci:%s is here",__FUNCTION__);
 
 	p = dbi_base + PCIE_PL_MSIC_INT + MSIC_INT_EN + ((pos >> 5) * 12);
 
@@ -490,6 +493,7 @@ unsigned int imx_pcie_msi_pending(unsigned int index)
 {
 	unsigned int val, mask;
 	void __iomem *p = dbi_base + PCIE_PL_MSIC_INT + (index * 12);
+	pr_info("jason-pci:%s is here",__FUNCTION__);
 
 	if (index >= 8)
 		return 0;
@@ -506,6 +510,7 @@ static int imx_pcie_rd_conf(struct pci_bus *bus, u32 devfn, int where,
 {
 	struct imx_pcie_port *pp = bus_to_port(bus->number);
 	u32 va_address;
+	pr_info("jason-pci:%s is here",__FUNCTION__);
 
 	/*  Added to change transaction TYPE  */
 	if (bus->number < 2) {
@@ -549,6 +554,7 @@ static int imx_pcie_wr_conf(struct pci_bus *bus, u32 devfn,
 	struct imx_pcie_port *pp = bus_to_port(bus->number);
 	u32 va_address = 0, mask = 0, tmp = 0;
 	int ret = PCIBIOS_SUCCESSFUL;
+	pr_info("jason-pci:%s is here",__FUNCTION__);
 
 	/*  Added to change transaction TYPE  */
 	if (bus->number < 2) {
@@ -602,6 +608,7 @@ static struct pci_bus __init *
 imx_pcie_scan_bus(int nr, struct pci_sys_data *sys)
 {
 	struct pci_bus *bus;
+	pr_info("jason-pci:%s is here",__FUNCTION__);
 
 	if (nr < num_pcie_ports) {
 		bus = pci_scan_bus(sys->busnr, &imx_pcie_ops, sys);
@@ -615,6 +622,8 @@ imx_pcie_scan_bus(int nr, struct pci_sys_data *sys)
 
 static int __init imx_pcie_map_irq(struct pci_dev *dev, u8 slot, u8 pin)
 {
+	pr_info("jason-pci:%s is here",__FUNCTION__);
+
        switch (pin) {
        case 1: return MXC_INT_PCIE_3;
        case 2: return MXC_INT_PCIE_2;
@@ -636,6 +645,7 @@ static struct hw_pci imx_pci __initdata = {
 static int pcie_phy_cr_ack_polling(int max_iterations, int exp_val)
 {
 	u32 temp_rd_data, wait_counter = 0;
+	pr_info("jason-pci:%s is here \n",__FUNCTION__);
 
 	do {
 		temp_rd_data = readl(dbi_base + PHY_STS_R);
@@ -651,6 +661,7 @@ static int pcie_phy_cr_ack_polling(int max_iterations, int exp_val)
 static int pcie_phy_cr_cap_addr(int addr)
 {
 	u32 temp_wr_data;
+	pr_info("jason-pci:%s is here",__FUNCTION__);
 
 	/* write addr */
 	temp_wr_data = addr << PCIE_CR_CTL_DATA_LOC ;
@@ -678,6 +689,7 @@ static int pcie_phy_cr_cap_addr(int addr)
 static int pcie_phy_cr_read(int addr , int *data)
 {
 	u32 temp_rd_data, temp_wr_data;
+	pr_info("jason-pci:%s is here",__FUNCTION__);
 
 	/*  write addr */
 	/* cap addr */
@@ -711,6 +723,7 @@ static int pcie_phy_cr_read(int addr , int *data)
 static int pcie_phy_cr_write(int addr, int data)
 {
 	u32 temp_wr_data;
+	pr_info("jason-pci:%s is here",__FUNCTION__);
 
 	/* write addr */
 	/* cap addr */
@@ -761,6 +774,7 @@ static int pcie_phy_cr_write(int addr, int data)
 static void change_field(int *in, int start, int end, int val)
 {
 	int mask;
+	pr_info("jason-pci:%s is here",__FUNCTION__);
 
 	mask = ((0xFFFFFFFF << start) ^ (0xFFFFFFFF << (end + 1))) & 0xFFFFFFFF;
 	*in = (*in & ~mask) | (val << start);
@@ -770,6 +784,7 @@ static void imx_pcie_enable_controller(struct device *dev)
 {
 	struct clk *pcie_clk;
 	struct imx_pcie_platform_data *pdata = dev->platform_data;
+	pr_info("jason-pci:%s is here \n",__FUNCTION__);
 
 	/* Enable PCIE power */
 	gpio_request(pdata->pcie_pwr_en, "PCIE POWER_EN");
@@ -806,6 +821,7 @@ static void imx_pcie_enable_controller(struct device *dev)
 static void card_reset(struct device *dev)
 {
 	struct imx_pcie_platform_data *pdata = dev->platform_data;
+	pr_info("jason-pci:%s is here",__FUNCTION__);
 
 	/* PCIE RESET */
 	gpio_request(pdata->pcie_rst, "PCIE RESET");
@@ -824,6 +840,7 @@ static void __init add_pcie_port(void __iomem *base, void __iomem *dbi_base,
 		struct imx_pcie_platform_data *pdata)
 {
 	struct clk *pcie_clk;
+	pr_info("jason-pci:%s is here",__FUNCTION__);
 
 	if (imx_pcie_link_up(dbi_base)) {
 		struct imx_pcie_port *pp = &imx_pcie_port[num_pcie_ports++];
@@ -869,6 +886,7 @@ static int imx6q_pcie_abort_handler(unsigned long addr,
 	 * If it was an imprecise abort, then we need to correct the
 	 * return address to be _after_ the instruction.
 	 */
+	 pr_info("jason-pci:%s is here \n",__FUNCTION__);
 	if (fsr & (1 << 10))
 		regs->ARM_pc += 4;
 	return 0;
@@ -887,6 +905,7 @@ imx_pcie_rc_memw_start(struct device *dev, struct device_attribute *attr,
 		const char *buf, size_t count)
 {
 	u32 memw_start;
+	pr_info("jason-pci:%s is here",__FUNCTION__);
 
 	sscanf(buf, "%x\n", &memw_start);
 
@@ -910,6 +929,7 @@ imx_pcie_rc_memw_size(struct device *dev, struct device_attribute *attr,
 		const char *buf, size_t count)
 {
 	u32 memw_size;
+	pr_info("jason-pci:%s is here \n",__FUNCTION__);
 
 	sscanf(buf, "%x\n", &memw_size);
 
@@ -958,10 +978,15 @@ static int __devinit imx_pcie_pltfm_probe(struct platform_device *pdev)
 	struct resource *mem;
 	struct device *dev = &pdev->dev;
 	struct imx_pcie_platform_data *pdata = dev->platform_data;
-
+	pr_info("jason-pci:%s is here \n",__FUNCTION__);
+	
 	pr_info("iMX6 PCIe %s mode %s entering.\n",
-			pdata->type_ep ? "PCIe EP" : "PCIe RC", __func__);
-
+				pdata->type_ep ? "PCIe EP" : "PCIe RC", __func__);
+    printk("jason-pci:pdata->pcie_dis is 0x%x \n",pdata->pcie_dis);//
+	printk("jason-pci:pdata->pcie_wake_up is 0x%x \n",pdata->pcie_wake_up);
+	printk("jason-pci:pdata->pcie_rst is 0x%x \n",pdata->pcie_rst);
+	printk("jason-pci:pdata->pcie_pwr_en is 0x%x \n",pdata->pcie_pwr_en);
+	printk("jason-pci:pdata->type_ep is 0x%x \n",pdata->type_ep);
 	mem = platform_get_resource(pdev, IORESOURCE_MEM, 0);
 	if (!mem) {
 		dev_err(dev, "no mmio space\n");
@@ -995,6 +1020,8 @@ static int __devinit imx_pcie_pltfm_probe(struct platform_device *pdev)
 		ret = PTR_ERR(dbi_base);
 		goto err_base;
 	}
+	printk("jason-pci:mem->start is 0x%x \n",mem->start);
+	printk("jason-pci:dbi_base is 0x%x \n",dbi_base);
 
 	/* FIXME the field name should be aligned to RM */
 	imx_pcie_clrset(IOMUXC_GPR12_APP_LTSSM_ENABLE, 0 << 10, IOMUXC_GPR12);
@@ -1063,7 +1090,7 @@ static int __devinit imx_pcie_pltfm_probe(struct platform_device *pdev)
 		/* link is debug bit 36 debug 1 start in bit 32 */
 		do {
 			usleep_range(10, 20);
-		} while ((readl(dbi_base + DB_R1) & 0x10) == 0);
+		} while ((readl(dbi_base + DB_R1) & 0x10) == 0);//xmlh_link_up LTSSM reports PHY link up
 		/* Make sure that the PCIe link is up */
 		if (imx_pcie_link_up(dbi_base)) {
 			pr_info("PCIe EP: link up.\n");
@@ -1077,7 +1104,7 @@ static int __devinit imx_pcie_pltfm_probe(struct platform_device *pdev)
 			goto err_link_down;
 		}
 
-		imx_pcie_regions_setup(dev, dbi_base);
+		imx_pcie_regions_setup(dev, dbi_base);//dbi_base is 0x01ffc000
 #ifdef EP_SELF_IO_TEST
 		/* PCIe EP start the data transfer after link up */
 		pr_info("PCIe EP: Starting data transfer...\n");

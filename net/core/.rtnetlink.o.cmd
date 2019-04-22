@@ -671,6 +671,8 @@ deps_net/core/rtnetlink.o := \
   include/linux/io.h \
     $(wildcard include/config/has/ioport.h) \
   include/linux/pci_ids.h \
+  include/linux/pci-dma.h \
+  include/linux/dmapool.h \
   /home/study/imx_linux/SolidRun/pcie_ep_side/linux-imx6_3_0_35/arch/arm/include/asm/pci.h \
     $(wildcard include/config/pci/host/ite8152.h) \
   include/asm-generic/pci-dma-compat.h \

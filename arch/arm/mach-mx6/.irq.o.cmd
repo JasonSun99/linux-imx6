@@ -425,6 +425,7 @@ deps_arch/arm/mach-mx6/irq.o := \
     $(wildcard include/config/cpu/freq/default/gov/ondemand.h) \
     $(wildcard include/config/cpu/freq/default/gov/conservative.h) \
     $(wildcard include/config/cpu/freq/default/gov/interactive.h) \
+  arch/arm/mach-mx6/msi.h \
 
 arch/arm/mach-mx6/irq.o: $(deps_arch/arm/mach-mx6/irq.o)
 

@@ -1698,7 +1698,7 @@ static const struct imx_pcie_platform_data mx6_sabresd_pcie_data __initconst = {
 #ifdef CONFIG_IMX_PCIE_EP_MODE_IN_EP_RC_SYS
 	.type_ep	= 1,
 #else
-	.type_ep	= 0,
+	.type_ep	= 1,
 #endif
 };
 
